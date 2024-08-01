@@ -22,13 +22,7 @@ public class Canvas implements Shape {
      * @param shape the shape to be added
      */
     public void addShape(Shape shape) {
-        Shape[] newShapes = new Shape[shapes.length + 1];
-        System.arraycopy(shapes, 0, newShapes, 0, shapes.length);
-
-        newShapes[shapes.length] = shape;
-        newShapes = ArraysUtils.insertSorted(shapes, newShapes.length - 1, shape);
-
-        shapes = newShapes;
+        shapes = ArraysUtils.insertSorted(shapes, shapes.length, shape);
     }
 
     /**

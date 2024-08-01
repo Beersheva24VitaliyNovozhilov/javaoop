@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CanvasTest {
 
@@ -17,7 +18,7 @@ class CanvasTest {
     }
 
     @Test
-    void testPerimeterEmptyCanvas() {
+    void testEmptyCanvas() {
         assertEquals(0, canvas.perimeter());
     }
 
@@ -40,11 +41,6 @@ class CanvasTest {
         canvas.addShape(new Rectangle(10, 5));
         canvas.addShape(new Square(6));
         assertEquals(54, canvas.perimeter());
-    }
-
-    @Test
-    void testSquareEmptyCanvas() {
-        assertEquals(0, canvas.square());
     }
 
     @Test

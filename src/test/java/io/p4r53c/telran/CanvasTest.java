@@ -62,11 +62,25 @@ class CanvasTest {
         canvas.addShape(new Square(6));
 
         assertEquals(86, canvas.square());
-        
+
         canvasOfCanvas.addShape(new Rectangle(10, 5));
         canvasOfCanvas.addShape(new Rectangle(10, 5));
 
-        canvas.addShape(canvasOfCanvas);
-        assertEquals(86 + 100, canvas.square());
+        canvasOfCanvas.addShape(canvas);
+        assertEquals(86 + 100, canvasOfCanvas.square());
+    }
+
+    @Test
+    void testCount() {
+
+        canvas.addShape(new Square(6));
+        canvas.addShape(new Square(6));
+
+        canvasOfCanvas.addShape(new Rectangle(10, 5));
+        canvasOfCanvas.addShape(new Square(6));
+
+        canvasOfCanvas.addShape(canvas);
+
+        assertEquals(5, canvasOfCanvas.countShapes());
     }
 }

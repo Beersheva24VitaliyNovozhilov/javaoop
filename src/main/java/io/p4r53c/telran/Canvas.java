@@ -26,6 +26,26 @@ public class Canvas implements Shape {
     }
 
     /**
+     * Counts the number of shapes on the canvas, including shapes nested within
+     * other canvases.
+     *
+     * @return the total number of shapes on the canvas
+     */
+    public int countShapes() {
+        int count = 0;
+
+        for (Shape shape : shapes) {
+            count++;
+
+            if (shape instanceof Canvas) {
+                count += ((Canvas) shape).countShapes();
+            }
+        }
+
+        return count;
+    }
+
+    /**
      * Calculates the perimeter of the shapes held by the canvas.
      * 
      * @return the perimeter of the shapes
